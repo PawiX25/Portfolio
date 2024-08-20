@@ -27,12 +27,8 @@
             display: none;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init();
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8" defer></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -106,9 +102,12 @@
             <p class="mt-6 text-lg text-gray-700 max-w-xl mx-auto">I'm always excited to connect with fellow tech enthusiasts and developers. Reach out to me!</p>
             
             <form action="https://send.pageclip.co/6VEL3zL8avg6T590T7RMPAEg94q6mGw4/contact-form" class="pageclip-form mt-10 mx-auto max-w-lg" method="post">
-                <input type="email" name="email" placeholder="Your Email" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
-                <input type="text" name="subject" placeholder="Subject" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
-                <textarea name="message" placeholder="Your Message" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" rows="4" required></textarea>
+                <label for="email" class="sr-only">Email</label>
+                <input id="email" type="email" name="email" placeholder="Your Email" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
+                <label for="subject" class="sr-only">Subject</label>
+                <input id="subject" type="text" name="subject" placeholder="Subject" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
+                <label for="message" class="sr-only">Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" rows="4" required></textarea>
                 <button type="submit" class="pageclip-form__submit bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300">
                     <span>Send</span>
                 </button>
@@ -131,11 +130,18 @@
         Back to Top
     </div>
 
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+        });
+
         function showContactForm() {
             const contactForm = document.getElementById('contact-form');
             contactForm.classList.toggle('hidden');
+            
+            if (!contactForm.classList.contains('hidden')) {
+                contactForm.scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
         document.addEventListener('DOMContentLoaded', (event) => {
