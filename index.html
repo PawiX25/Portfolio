@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PawiX25 - Developer Portfolio. Explore projects, skills, and contact me.">
     <title>PawiX25 - Developer Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
@@ -35,10 +36,10 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <header class="bg-gray-900 text-white py-6 shadow-lg">
+    <header class="bg-gray-900 text-white py-6 shadow-lg" role="banner">
         <div class="container mx-auto flex justify-between items-center px-6">
             <h1 class="text-4xl font-extrabold" data-aos="fade-down" data-aos-duration="1000">PawiX25</h1>
-            <nav>
+            <nav role="navigation">
                 <a href="#about" class="text-gray-300 hover:text-white mx-4 text-lg" data-aos="fade-up" data-aos-duration="1200">About</a>
                 <a href="#projects" class="text-gray-300 hover:text-white mx-4 text-lg" data-aos="fade-up" data-aos-duration="1300">Projects</a>
                 <a href="#" id="contact-button" class="text-gray-300 hover:text-white mx-4 text-lg cursor-pointer" data-aos="fade-up" data-aos-duration="1400">Contact</a>
@@ -69,7 +70,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
                 
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1200">
-                    <img src="veilpaste.png" alt="Veil Paste" class="w-full h-48 object-cover">
+                    <img src="veilpaste.png" alt="Veil Paste - Secure encrypted text sharing platform" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Veil Paste</h3>
                         <p class="mt-4 text-gray-700">A secure, encrypted platform for sharing text-based content. Protects your data with dual-layer encryption.</p>
@@ -78,7 +79,7 @@
                 </div>
 
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1300">
-                    <img src="dealik.png" alt="Dealik" class="w-full h-48 object-cover">
+                    <img src="dealik.png" alt="Dealik - Discover and manage online deals" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Dealik</h3>
                         <p class="mt-4 text-gray-700">A web application for discovering, sharing, and managing online deals and discounts.</p>
@@ -87,7 +88,7 @@
                 </div>
 
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1400">
-                    <img src="sparkle.png" alt="Sparkle Bot" class="w-full h-48 object-cover">
+                    <img src="sparkle.png" alt="Sparkle Bot - Discord music bot" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Sparkle Bot</h3>
                         <p class="mt-4 text-gray-700">A Discord music bot with advanced features like queue management, autoplay, and more.</p>
@@ -119,10 +120,14 @@
     <footer class="bg-gray-900 text-white py-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 PawiX25. All Rights Reserved.</p>
+            <div class="mt-4">
+                <a href="https://twitter.com/pawix25" class="text-blue-400 hover:underline mx-2">Twitter</a>
+                <a href="https://github.com/pawix25" class="text-gray-300 hover:underline mx-2">GitHub</a>
+            </div>
         </div>
     </footer>
 
-    <div id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white py-3 px-4 rounded-full cursor-pointer hover:bg-blue-700 transition-colors duration-300">
+    <div id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white py-3 px-4 rounded-full cursor-pointer hover:bg-blue-700 transition-colors duration-300" aria-label="Back to Top">
         Back to Top
     </div>
 
