@@ -6,6 +6,7 @@
     <title>PawiX25 - Developer Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
         #back-to-top {
             opacity: 0;
@@ -25,16 +26,22 @@
             display: none;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
+        });
+    </script>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
     <header class="bg-gray-900 text-white py-6 shadow-lg">
         <div class="container mx-auto flex justify-between items-center px-6">
-            <h1 class="text-4xl font-extrabold">PawiX25</h1>
+            <h1 class="text-4xl font-extrabold" data-aos="fade-down" data-aos-duration="1000">PawiX25</h1>
             <nav>
-                <a href="#about" class="text-gray-300 hover:text-white mx-4 text-lg">About</a>
-                <a href="#projects" class="text-gray-300 hover:text-white mx-4 text-lg">Projects</a>
-                <a href="#" id="contact-button" class="text-gray-300 hover:text-white mx-4 text-lg cursor-pointer">Contact</a>
+                <a href="#about" class="text-gray-300 hover:text-white mx-4 text-lg" data-aos="fade-up" data-aos-duration="1200">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-white mx-4 text-lg" data-aos="fade-up" data-aos-duration="1300">Projects</a>
+                <a href="#" id="contact-button" class="text-gray-300 hover:text-white mx-4 text-lg cursor-pointer" data-aos="fade-up" data-aos-duration="1400">Contact</a>
             </nav>
         </div>
     </header>
@@ -42,23 +49,23 @@
 
     <section class="bg-gray-800 text-white text-center py-24">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-extrabold">Welcome to My Digital Playground!</h2>
-            <p class="mt-6 text-lg max-w-2xl mx-auto">I'm Paweł, a teenager from Poland with a passion for technology and coding.</p>
+            <h2 class="text-5xl font-extrabold" data-aos="fade-up" data-aos-duration="1000">Welcome to My Digital Playground!</h2>
+            <p class="mt-6 text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1500">I'm Paweł, a teenager from Poland with a passion for technology and coding.</p>
         </div>
     </section>
 
 
     <section id="about" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-extrabold text-center text-gray-900">About Me</h2>
-            <p class="mt-6 text-lg text-center text-gray-700 max-w-2xl mx-auto">As a young developer, I’m curious about how things work under the hood, especially in Android development, web services, and console homebrew.</p>
+            <h2 class="text-4xl font-extrabold text-center text-gray-900" data-aos="fade-up" data-aos-duration="1000">About Me</h2>
+            <p class="mt-6 text-lg text-center text-gray-700 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1500">As a young developer, I’m curious about how things work under the hood, especially in Android development, web services, and console homebrew.</p>
         </div>
     </section>
 
 
     <section id="projects" class="py-24 bg-gray-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-extrabold text-center text-gray-900">Projects</h2>
+            <h2 class="text-4xl font-extrabold text-center text-gray-900" data-aos="fade-up" data-aos-duration="1000">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
 
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
@@ -70,7 +77,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1300">
                     <img src="dealik.png" alt="Dealik" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Dealik</h3>
@@ -79,7 +86,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1400">
                     <img src="sparkle.png" alt="Sparkle Bot" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Sparkle Bot</h3>
