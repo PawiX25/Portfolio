@@ -74,8 +74,9 @@
             width: 75%;
             overflow: hidden;
             margin-top: 10px;
+            overflow: hidden; /* Added to hide bubbles extending beyond the bar */
         }
-        
+
         .skill-bar-inner {
             height: 100%;
             border-radius: 9999px;
@@ -92,6 +93,42 @@
         .animate-bar.active .skill-bar-inner {
             width: var(--skill-width);
         }
+
+        /* Bubble effect styles */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            animation: bubble 10s infinite;
+        }
+
+        @keyframes bubble {
+            0% {
+                transform: translateY(100%) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .bubble:nth-child(1) { width: 20px; height: 20px; animation-duration: 7s; top: 10%; left: 15%; }
+        .bubble:nth-child(2) { width: 25px; height: 25px; animation-duration: 8s; top: 20%; left: 50%; }
+        .bubble:nth-child(3) { width: 30px; height: 30px; animation-duration: 9s; top: 40%; left: 30%; }
+        .bubble:nth-child(4) { width: 15px; height: 15px; animation-duration: 6s; top: 60%; left: 70%; }
+        .bubble:nth-child(5) { width: 20px; height: 20px; animation-duration: 10s; top: 80%; left: 40%; }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
     <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8" defer></script>
@@ -165,34 +202,51 @@
             <p class="mt-6 text-lg text-center text-gray-700 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1500">Here are some of the skills I have acquired over my development journey.</p>
 
             <div class="mt-12 space-y-8">
-                <div class="flex items-center justify-between animate-bar" data-skill-width="90%">
+                <div class="relative flex items-center justify-between animate-bar" data-skill-width="90%">
                     <span class="text-gray-900 font-medium">JavaScript</span>
                     <div class="skill-bar">
                         <div class="skill-bar-inner bg-blue-500" style="--skill-width: 90%;"></div>
+                        <div class="bubbles">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="flex items-center justify-between animate-bar" data-skill-width="80%">
+                <div class="relative flex items-center justify-between animate-bar" data-skill-width="80%">
                     <span class="text-gray-900 font-medium">Python</span>
                     <div class="skill-bar">
                         <div class="skill-bar-inner bg-yellow-500" style="--skill-width: 80%;"></div>
+                        <div class="bubbles">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="flex items-center justify-between animate-bar" data-skill-width="85%">
+                <div class="relative flex items-center justify-between animate-bar" data-skill-width="85%">
                     <span class="text-gray-900 font-medium">HTML & CSS</span>
                     <div class="skill-bar">
                         <div class="skill-bar-inner bg-red-500" style="--skill-width: 85%;"></div>
+                        <div class="bubbles">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="flex items-center justify-between animate-bar" data-skill-width="70%">
+                <div class="relative flex items-center justify-between animate-bar" data-skill-width="70%">
                     <span class="text-gray-900 font-medium">C++</span>
                     <div class="skill-bar">
                         <div class="skill-bar-inner bg-purple-500" style="--skill-width: 70%;"></div>
+                        <div class="bubbles">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
                     </div>
                 </div>
             </div>
