@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PawiX25 - Developer Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <style>
         #back-to-top {
             opacity: 0;
@@ -19,6 +20,10 @@
         html {
             scroll-behavior: smooth;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -29,7 +34,7 @@
             <nav>
                 <a href="#about" class="text-gray-300 hover:text-white mx-4 text-lg">About</a>
                 <a href="#projects" class="text-gray-300 hover:text-white mx-4 text-lg">Projects</a>
-                <a href="#contact" class="text-gray-300 hover:text-white mx-4 text-lg">Contact</a>
+                <a href="#" id="contact-button" class="text-gray-300 hover:text-white mx-4 text-lg cursor-pointer">Contact</a>
             </nav>
         </div>
     </header>
@@ -56,8 +61,8 @@
             <h2 class="text-4xl font-extrabold text-center text-gray-900">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
 
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="veilpaste.png" alt="Veil Paste" class="w-full h-75 object-cover">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <img src="veilpaste.png" alt="Veil Paste" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Veil Paste</h3>
                         <p class="mt-4 text-gray-700">A secure, encrypted platform for sharing text-based content. Protects your data with dual-layer encryption.</p>
@@ -65,8 +70,8 @@
                     </div>
                 </div>
 
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="dealik.png" alt="Dealik" class="w-full h-75 object-cover">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <img src="dealik.png" alt="Dealik" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Dealik</h3>
                         <p class="mt-4 text-gray-700">A web application for discovering, sharing, and managing online deals and discounts.</p>
@@ -74,8 +79,8 @@
                     </div>
                 </div>
 
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="sparkle.png" alt="Sparkle Bot" class="w-full h-75 object-cover">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <img src="sparkle.png" alt="Sparkle Bot" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Sparkle Bot</h3>
                         <p class="mt-4 text-gray-700">A Discord music bot with advanced features like queue management, autoplay, and more.</p>
@@ -87,11 +92,19 @@
     </section>
 
 
-    <section id="contact" class="py-24 bg-white">
+    <section id="contact-form" class="py-24 bg-white hidden">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl font-extrabold text-gray-900">Contact Me</h2>
             <p class="mt-6 text-lg text-gray-700 max-w-xl mx-auto">I'm always excited to connect with fellow tech enthusiasts and developers. Reach out to me!</p>
-            <a href="mailto:pawix25@gmail.com" class="mt-10 inline-block bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 text-lg transition-colors duration-300">Send an Email</a>
+            
+            <form action="https://send.pageclip.co/6VEL3zL8avg6T590T7RMPAEg94q6mGw4/contact-form" class="pageclip-form mt-10 mx-auto max-w-lg" method="post">
+                <input type="email" name="email" placeholder="Your Email" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
+                <input type="text" name="subject" placeholder="Subject" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
+                <textarea name="message" placeholder="Your Message" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" rows="4" required></textarea>
+                <button type="submit" class="pageclip-form__submit bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300">
+                    <span>Send</span>
+                </button>
+            </form>
         </div>
     </section>
 
@@ -106,7 +119,22 @@
         Back to Top
     </div>
 
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
     <script>
+        function showContactForm() {
+            const contactForm = document.getElementById('contact-form');
+            contactForm.classList.toggle('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const contactButton = document.getElementById('contact-button');
+            if (contactButton) {
+                contactButton.addEventListener('click', showContactForm);
+            } else {
+                console.error('Contact button not found.');
+            }
+        });
+
         window.onscroll = function() {
             const backToTopButton = document.getElementById('back-to-top');
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
