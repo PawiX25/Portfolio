@@ -27,6 +27,18 @@
         .hidden {
             display: none;
         }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card {
+            transition: transform 0.3s ease-in-out;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
     <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8" defer></script>
@@ -44,14 +56,12 @@
         </div>
     </header>
 
-
-    <section class="bg-gray-800 text-white text-center py-24">
+    <section class="gradient-bg text-white text-center py-24">
         <div class="container mx-auto px-6">
             <h2 class="text-5xl font-extrabold" data-aos="fade-up" data-aos-duration="1000">Welcome to My Digital Playground!</h2>
             <p class="mt-6 text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1500">I'm Paweł, a teenager from Poland with a passion for technology and coding.</p>
         </div>
     </section>
-
 
     <section id="about" class="py-24 bg-white">
         <div class="container mx-auto px-6">
@@ -60,13 +70,12 @@
         </div>
     </section>
 
-
     <section id="projects" class="py-24 bg-gray-200">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-extrabold text-center text-gray-900" data-aos="fade-up" data-aos-duration="1000">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
                 
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1200">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card" data-aos="fade-up" data-aos-duration="1200">
                     <img src="veilpaste.png" alt="Veil Paste - Secure encrypted text sharing platform" class="w-full h-75 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Veil Paste</h3>
@@ -75,7 +84,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1300">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card" data-aos="fade-up" data-aos-duration="1300">
                     <img src="dealik.png" alt="Dealik - Discover and manage online deals" class="w-full h-75 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Dealik</h3>
@@ -84,7 +93,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-duration="1400">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card" data-aos="fade-up" data-aos-duration="1400">
                     <img src="sparkle.png" alt="Sparkle Bot - Discord music bot" class="w-full h-75 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900">Sparkle Bot</h3>
@@ -95,7 +104,6 @@
             </div>
         </div>
     </section>
-
 
     <section id="contact-form" class="py-24 bg-white hidden">
         <div class="container mx-auto px-6 text-center">
@@ -115,7 +123,6 @@
             </form>
         </div>
     </section>
-
 
     <footer class="bg-gray-900 text-white py-6">
         <div class="container mx-auto text-center">
