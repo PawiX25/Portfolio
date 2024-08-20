@@ -8,74 +8,78 @@
     <style>
         #back-to-top {
             opacity: 0;
-            transition: opacity 0.5s ease-in-out; 
-            pointer-events: none; 
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
         }
         #back-to-top.show {
             opacity: 1;
-            pointer-events: auto; 
+            pointer-events: auto;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    
-    <header class="bg-gray-900 text-white py-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold">PawiX25</h1>
+
+    <header class="bg-gray-900 text-white py-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-4xl font-extrabold">PawiX25</h1>
             <nav>
-                <a href="#about" class="text-gray-300 hover:text-white mx-4">About</a>
-                <a href="#projects" class="text-gray-300 hover:text-white mx-4">Projects</a>
-                <a href="#contact" class="text-gray-300 hover:text-white mx-4">Contact</a>
+                <a href="#about" class="text-gray-300 hover:text-white mx-4 text-lg">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-white mx-4 text-lg">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-white mx-4 text-lg">Contact</a>
             </nav>
         </div>
     </header>
 
 
-    <section class="bg-gray-800 text-white text-center py-20">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold">Welcome to My Digital Playground!</h2>
-            <p class="mt-4">I'm Paweł, a teenager from Poland with a passion for technology and coding.</p>
+    <section class="bg-gray-800 text-white text-center py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-extrabold">Welcome to My Digital Playground!</h2>
+            <p class="mt-6 text-lg max-w-2xl mx-auto">I'm Paweł, a teenager from Poland with a passion for technology and coding.</p>
         </div>
     </section>
 
 
-    <section id="about" class="py-20">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center">About Me</h2>
-            <p class="mt-4 text-center">As a young developer, I’m curious about how things work under the hood, especially in Android development, web services, and console homebrew.</p>
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-extrabold text-center text-gray-900">About Me</h2>
+            <p class="mt-6 text-lg text-center text-gray-700 max-w-2xl mx-auto">As a young developer, I’m curious about how things work under the hood, especially in Android development, web services, and console homebrew.</p>
         </div>
     </section>
 
 
-    <section id="projects" class="py-20 bg-gray-200">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                
+    <section id="projects" class="py-24 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-extrabold text-center text-gray-900">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
+
                 <div class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="veilpaste.png" alt="Veil Paste" class="w-full h-75 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold">Veil Paste</h3>
-                        <p class="mt-2">A secure, encrypted platform for sharing text-based content. Protects your data with dual-layer encryption.</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-4 block">Learn More</a>
+                        <h3 class="text-2xl font-bold text-gray-900">Veil Paste</h3>
+                        <p class="mt-4 text-gray-700">A secure, encrypted platform for sharing text-based content. Protects your data with dual-layer encryption.</p>
+                        <a href="#" class="text-blue-500 hover:underline mt-6 block">Learn More</a>
                     </div>
                 </div>
-                
+
                 <div class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="dealik.png" alt="Dealik" class="w-full h-75 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold">Dealik</h3>
-                        <p class="mt-2">A web application for discovering, sharing, and managing online deals and discounts.</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-4 block">Learn More</a>
+                        <h3 class="text-2xl font-bold text-gray-900">Dealik</h3>
+                        <p class="mt-4 text-gray-700">A web application for discovering, sharing, and managing online deals and discounts.</p>
+                        <a href="#" class="text-blue-500 hover:underline mt-6 block">Learn More</a>
                     </div>
                 </div>
-                
+
                 <div class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="sparkle.png" alt="Sparkle Bot" class="w-full h-75 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold">Sparkle Bot</h3>
-                        <p class="mt-2">A Discord music bot with advanced features like queue management, autoplay, and more.</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-4 block">Learn More</a>
+                        <h3 class="text-2xl font-bold text-gray-900">Sparkle Bot</h3>
+                        <p class="mt-4 text-gray-700">A Discord music bot with advanced features like queue management, autoplay, and more.</p>
+                        <a href="#" class="text-blue-500 hover:underline mt-6 block">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -83,22 +87,22 @@
     </section>
 
 
-    <section id="contact" class="py-20">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold">Contact Me</h2>
-            <p class="mt-4">I'm always excited to connect with fellow tech enthusiasts and developers. Reach out to me!</p>
-            <a href="mailto:pawix25@gmail.com" class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Send an Email</a>
+    <section id="contact" class="py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-extrabold text-gray-900">Contact Me</h2>
+            <p class="mt-6 text-lg text-gray-700 max-w-xl mx-auto">I'm always excited to connect with fellow tech enthusiasts and developers. Reach out to me!</p>
+            <a href="mailto:pawix25@gmail.com" class="mt-10 inline-block bg-blue-600 text-white py-3 px-6 rounded-full hover:bg-blue-700 text-lg transition-colors duration-300">Send an Email</a>
         </div>
     </section>
 
 
-    <footer class="bg-gray-900 text-white py-4">
+    <footer class="bg-gray-900 text-white py-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 PawiX25. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <div id="back-to-top" class="fixed bottom-5 right-5 bg-blue-500 text-white py-2 px-4 rounded-md cursor-pointer hover:bg-blue-600">
+    <div id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white py-3 px-4 rounded-full cursor-pointer hover:bg-blue-700 transition-colors duration-300">
         Back to Top
     </div>
 
