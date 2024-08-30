@@ -7,7 +7,7 @@ Welcome to my developer portfolio! This project showcases my skills, projects, a
 - [Usage](#usage)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-
+- [Screenshot](#screenshot)
 
 ## Usage
 
@@ -33,3 +33,8 @@ Welcome to my developer portfolio! This project showcases my skills, projects, a
 - **AOS (Animate On Scroll) Library**
 - **Pageclip (for contact form)**
 
+## Screenshot
+
+Here’s a screenshot of the portfolio to give you a visual overview:
+
+![portfolio](https://github.com/user-attachments/assets/25f63dc1-c9af-4755-b6ee-9636b91d9df0)
