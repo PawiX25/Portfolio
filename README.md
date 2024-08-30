@@ -2,6 +2,8 @@
 
 Welcome to my developer portfolio! This project showcases my skills, projects, and provides a way to contact me.
 
+You can view the live portfolio here: [PawiX25 Portfolio](https://me.pawix.tech/)
+
 ## Table of Contents
 
 - [Usage](#usage)
