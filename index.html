@@ -1,345 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PawiX25 - Developer Portfolio. Explore projects, skills, and contact me.">
     <title>PawiX25 - Developer Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        #back-to-top {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            pointer-events: none;
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
+                    },
+                    fontFamily: {
+                        'body': [
+                            'Inter', 
+                            'ui-sans-serif', 
+                            'system-ui', 
+                            '-apple-system', 
+                            'system-ui', 
+                            'Segoe UI', 
+                            'Roboto', 
+                            'Helvetica Neue', 
+                            'Arial', 
+                            'Noto Sans', 
+                            'sans-serif', 
+                            'Apple Color Emoji', 
+                            'Segoe UI Emoji', 
+                            'Segoe UI Symbol', 
+                            'Noto Color Emoji'
+                        ],
+                        'sans': [
+                            'Inter', 
+                            'ui-sans-serif', 
+                            'system-ui', 
+                            '-apple-system', 
+                            'system-ui', 
+                            'Segoe UI', 
+                            'Roboto', 
+                            'Helvetica Neue', 
+                            'Arial', 
+                            'Noto Sans', 
+                            'sans-serif', 
+                            'Apple Color Emoji', 
+                            'Segoe UI Emoji', 
+                            'Segoe UI Symbol', 
+                            'Noto Color Emoji'
+                        ]
+                    }
+                }
+            }
         }
-        #back-to-top.show {
-            opacity: 1;
-            pointer-events: auto;
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradientAnimation 5s ease infinite;
+        }
+        
+        @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
         }
 
-        html {
-            scroll-behavior: smooth;
+        .skill-bar {
+            position: relative;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            position: absolute;
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 1.5s ease-out;
+        }
+
+        .card {
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
         }
 
         .hidden {
             display: none;
         }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .nav-link:hover {
-            text-decoration: underline;
-        }
-
-        .shadow-lg {
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .shadow-2xl {
-            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .footer-icon:hover {
-            color: #8E2DE2;
-        }
-
-        .btn-primary {
-            background-color: #8E2DE2;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #4A00E0;
-        }
-
-        .skill-bar {
-            position: relative;
-            background-color: #E5E7EB;
-            border-radius: 9999px;
-            height: 10px;
-            width: 75%;
-            overflow: hidden;
-            margin-top: 10px;
-            overflow: hidden; /* Added to hide bubbles extending beyond the bar */
-        }
-
-        .skill-bar-inner {
-            height: 100%;
-            border-radius: 9999px;
-            transition: width 2s ease-out;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .animate-bar .skill-bar-inner {
-            width: 0;
-        }
-
-        .animate-bar.active .skill-bar-inner {
-            width: var(--skill-width);
-        }
-
-        /* Bubble effect styles */
-        .bubbles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            animation: bubble 10s infinite;
-        }
-
-        @keyframes bubble {
-            0% {
-                transform: translateY(100%) scale(0.5);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100%) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .bubble:nth-child(1) { width: 20px; height: 20px; animation-duration: 7s; top: 10%; left: 15%; }
-        .bubble:nth-child(2) { width: 25px; height: 25px; animation-duration: 8s; top: 20%; left: 50%; }
-        .bubble:nth-child(3) { width: 30px; height: 30px; animation-duration: 9s; top: 40%; left: 30%; }
-        .bubble:nth-child(4) { width: 15px; height: 15px; animation-duration: 6s; top: 60%; left: 70%; }
-        .bubble:nth-child(5) { width: 20px; height: 20px; animation-duration: 10s; top: 80%; left: 40%; }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8" defer></script>
 </head>
-<body class="bg-gray-100 text-gray-800">
-
-    <header class="bg-gray-900 text-white py-6 shadow-lg" role="banner">
-        <div class="container mx-auto flex justify-between items-center px-6">
-            <h1 class="text-4xl font-extrabold" data-aos="fade-down" data-aos-duration="1000">PawiX25</h1>
-            <nav role="navigation">
-                <a href="#about" class="nav-link text-gray-300 hover:text-white mx-4 text-lg" data-aos="fade-up" data-aos-duration="1200">About</a>
-                <a href="#projects" class="nav-link text-gray-300 hover:text-white mx-4 text-lg" data-aos="fade-up" data-aos-duration="1300">Projects</a>
-                <a href="#skills" class="nav-link text-gray-300 hover:text-white mx-4 text-lg" data-aos="fade-up" data-aos-duration="1400">Skills</a>
-                <a href="#" id="contact-button" class="nav-link text-gray-300 hover:text-white mx-4 text-lg cursor-pointer" data-aos="fade-up" data-aos-duration="1500">Contact</a>
-            </nav>
-        </div>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-body">
+    <header class="bg-white dark:bg-gray-800 shadow-lg fixed w-full z-10 transition-colors duration-300">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-3xl font-bold text-primary-600 dark:text-primary-400">PawiX25</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">About</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Projects</a>
+                    <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300">Skills</a>
+                    <a href="#" id="contact-button" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 cursor-pointer">Contact</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </nav>
     </header>
 
-    <section class="gradient-bg text-white text-center py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-extrabold" data-aos="fade-up" data-aos-duration="1000">Welcome to My Digital Playground!</h2>
-            <p class="mt-6 text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1500">I'm Paweł, a teenager from Poland with a passion for technology and coding.</p>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-extrabold text-center text-gray-900" data-aos="fade-up" data-aos-duration="1000">About Me</h2>
-            <p class="mt-6 text-lg text-center text-gray-700 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1500">As a young developer, I’m curious about how things work under the hood, especially in Android development, web services, and console homebrew.</p>
-        </div>
-    </section>
-
-    <section id="projects" class="py-24 bg-gray-200">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-extrabold text-center text-gray-900" data-aos="fade-up" data-aos-duration="1000">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
-                
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card" data-aos="fade-up" data-aos-duration="1200">
-                    <img src="veilpaste.png" alt="Veil Paste - Secure encrypted text sharing platform" class="w-full h-75 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900">Veil Paste</h3>
-                        <p class="mt-4 text-gray-700">A secure, encrypted platform for sharing text-based content. Protects your data with dual-layer encryption.</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-6 block">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card" data-aos="fade-up" data-aos-duration="1300">
-                    <img src="dealik.png" alt="Dealik - Discover and manage online deals" class="w-full h-75 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900">Dealik</h3>
-                        <p class="mt-4 text-gray-700">A web application for discovering, sharing, and managing online deals and discounts.</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-6 block">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 card" data-aos="fade-up" data-aos-duration="1400">
-                    <img src="sparkle.png" alt="Sparkle Bot - Discord music bot" class="w-full h-75 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-900">Sparkle Bot</h3>
-                        <p class="mt-4 text-gray-700">A Discord music bot with advanced features like queue management, autoplay, and more.</p>
-                        <a href="#" class="text-blue-500 hover:underline mt-6 block">Learn More</a>
-                    </div>
-                </div>
+    <main class="pt-16">
+        <section class="animate-gradient bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-24 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Welcome to My Digital Playground!</h1>
+                <p class="text-xl md:text-2xl mb-8">I'm Paweł, a teenager from Poland with a passion for technology and coding.</p>
+                <a href="#projects" class="bg-white text-primary-600 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors duration-300 inline-block">Explore My Projects</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="py-24 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-extrabold text-center text-gray-900" data-aos="fade-up" data-aos-duration="1000">Skills</h2>
-            <p class="mt-6 text-lg text-center text-gray-700 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1500">Here are some of the skills I have acquired over my development journey.</p>
+        <section id="about" class="py-20 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">About Me</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto">
+                    As a young developer, I'm curious about how things work under the hood, especially in Android development, web services, and console homebrew. My journey in tech is driven by a desire to create innovative solutions and push the boundaries of what's possible.
+                </p>
+            </div>
+        </section>
 
-            <div class="mt-12 space-y-8">
-                <div class="relative flex items-center justify-between animate-bar" data-skill-width="90%">
-                    <span class="text-gray-900 font-medium">JavaScript</span>
-                    <div class="skill-bar">
-                        <div class="skill-bar-inner bg-blue-500" style="--skill-width: 90%;"></div>
-                        <div class="bubbles">
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
+        <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                        <img src="veilpaste.png" alt="Veil Paste - Secure encrypted text sharing platform" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Veil Paste</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">A secure, encrypted platform for sharing text-based content. Protects your data with dual-layer encryption.</p>
+                            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">Learn More →</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="relative flex items-center justify-between animate-bar" data-skill-width="80%">
-                    <span class="text-gray-900 font-medium">Python</span>
-                    <div class="skill-bar">
-                        <div class="skill-bar-inner bg-yellow-500" style="--skill-width: 80%;"></div>
-                        <div class="bubbles">
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
+                    <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                        <img src="dealik.png" alt="Dealik - Discover and manage online deals" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Dealik</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">A web application for discovering, sharing, and managing online deals and discounts.</p>
+                            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">Learn More →</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="relative flex items-center justify-between animate-bar" data-skill-width="85%">
-                    <span class="text-gray-900 font-medium">HTML & CSS</span>
-                    <div class="skill-bar">
-                        <div class="skill-bar-inner bg-red-500" style="--skill-width: 85%;"></div>
-                        <div class="bubbles">
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative flex items-center justify-between animate-bar" data-skill-width="70%">
-                    <span class="text-gray-900 font-medium">C++</span>
-                    <div class="skill-bar">
-                        <div class="skill-bar-inner bg-purple-500" style="--skill-width: 70%;"></div>
-                        <div class="bubbles">
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
-                            <div class="bubble"></div>
+                    <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                        <img src="sparkle.png" alt="Sparkle Bot - Discord music bot" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Sparkle Bot</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">A Discord music bot with advanced features like queue management, autoplay, and more.</p>
+                            <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">Learn More →</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact-form" class="py-24 bg-white hidden">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-extrabold text-gray-900">Contact Me</h2>
-            <p class="mt-6 text-lg text-gray-700 max-w-xl mx-auto">I'm always excited to connect with fellow tech enthusiasts and developers. Reach out to me!</p>
-            
-            <form action="https://send.pageclip.co/6VEL3zL8avg6T590T7RMPAEg94q6mGw4/contact-form" class="pageclip-form mt-10 mx-auto max-w-lg" method="post">
-                <label for="email" class="sr-only">Email</label>
-                <input id="email" type="email" name="email" placeholder="Your Email" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
-                <label for="subject" class="sr-only">Subject</label>
-                <input id="subject" type="text" name="subject" placeholder="Subject" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" required />
-                <label for="message" class="sr-only">Message</label>
-                <textarea id="message" name="message" placeholder="Your Message" class="border border-gray-300 rounded px-4 py-2 w-full mb-4" rows="4" required></textarea>
-                <button type="submit" class="pageclip-form__submit btn-primary py-3 px-6 rounded-full transition-colors duration-300">
-                    <span>Send</span>
-                </button>
-            </form>
-        </div>
-    </section>
+        <section id="skills" class="py-20 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Skills</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">JavaScript</span>
+                            <span class="text-sm font-semibold">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-primary-600" style="width: 0%;" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Python</span>
+                            <span class="text-sm font-semibold">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-primary-600" style="width: 0%;" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">HTML & CSS</span>
+                            <span class="text-sm font-semibold">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-primary-600" style="width: 0%;" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">C++</span>
+                            <span class="text-sm font-semibold">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-primary-600" style="width: 0%;" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="bg-gray-900 text-white py-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 PawiX25. All Rights Reserved.</p>
-            <div class="mt-4">
-                <a href="https://twitter.com/pawix25" class="text-blue-400 hover:underline mx-2 footer-icon">
-                    <i class="fab fa-twitter"></i> Twitter
-                </a>
-                <a href="https://github.com/pawix25" class="text-gray-300 hover:underline mx-2 footer-icon">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+        <section id="contact-form" class="py-20 bg-gray-100 dark:bg-gray-900 hidden">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Contact Me</h2>
+                <p class="text-center mb-8">I'm always excited to connect with fellow tech enthusiasts and developers. Reach out to me!</p>
+                <form action="https://send.pageclip.co/6VEL3zL8avg6T590T7RMPAEg94q6mGw4/contact-form" class="max-w-lg mx-auto" method="post">
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm font-medium">Your Email</label>
+                        <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block mb-2 text-sm font-medium">Subject</label>
+                        <input type="text" id="subject" name="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Let me know how I can help you" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 text-sm font-medium">Your message</label>
+                        <textarea id="message" name="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2024 PawiX25. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="https://twitter.com/pawix25" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://github.com/pawix25" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
-
-    <div id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white py-3 px-4 rounded-full cursor-pointer hover:bg-blue-700 transition-colors duration-300" aria-label="Back to Top">
-        Back to Top
-    </div>
-
+    
+    <button id="back-to-top" class="fixed bottom-5 right-5 bg-primary-600 text-white p-2 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init();
+        // Theme toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+    
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
         });
-
-        function showContactForm() {
-            const contactForm = document.getElementById('contact-form');
+    
+        // Contact form toggle
+        const contactButton = document.getElementById('contact-button');
+        const contactForm = document.getElementById('contact-form');
+    
+        contactButton.addEventListener('click', () => {
             contactForm.classList.toggle('hidden');
-            
             if (!contactForm.classList.contains('hidden')) {
                 contactForm.scrollIntoView({ behavior: 'smooth' });
             }
-        }
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const contactButton = document.getElementById('contact-button');
-            if (contactButton) {
-                contactButton.addEventListener('click', showContactForm);
+        });
+    
+        // Skill bar animation
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        };
+    
+        // Intersection Observer for skill bars
+        const skillSection = document.getElementById('skills');
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateSkillBars();
+                observer.unobserve(skillSection);
+            }
+        }, { threshold: 0.5 });
+    
+        observer.observe(skillSection);
+    
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+    
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                backToTopButton.classList.add('opacity-100');
             } else {
-                console.error('Contact button not found.');
+                backToTopButton.classList.remove('opacity-100');
             }
         });
-
-        window.onscroll = function() {
-            const backToTopButton = document.getElementById('back-to-top');
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        };
-
-        function scrollToTop() {
+    
+        backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        document.getElementById('back-to-top').addEventListener('click', scrollToTop);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const skillBars = document.querySelectorAll('.animate-bar');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            skillBars.forEach(bar => observer.observe(bar));
         });
     </script>
 </body>
